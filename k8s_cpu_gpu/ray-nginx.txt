@@ -1,0 +1,57 @@
+worker_processes auto;
+
+load_module /usr/lib/nginx/modules/ngx_stream_module.so;
+events {
+    worker_connections  10240;
+    use epoll;
+}
+error_log /var/log/nginx_error.log info;
+stream {
+    upstream ray6379 {
+        server 10.1.173.139:6379        max_fails=3 fail_timeout=30s;
+    }
+    upstream ray6380 {
+        server 10.1.173.139:6380        max_fails=3 fail_timeout=30s;
+    }
+    upstream ray6381 {
+        server 10.1.173.139:6381        max_fails=3 fail_timeout=30s;
+    }
+    upstream ray12345 {
+        server 10.1.173.139:12345        max_fails=3 fail_timeout=30s;
+    }
+    upstream ray12346 {
+        server 10.1.173.139:12346        max_fails=3 fail_timeout=30s;
+    }
+
+    server {
+        listen 172.17.41.164:6379;
+        proxy_connect_timeout 1s;
+        proxy_timeout 30s;
+        proxy_pass ray6379;
+    }
+    server {
+        listen 172.17.41.164:6380;
+        proxy_connect_timeout 1s;
+        proxy_timeout 30s;
+        proxy_pass ray6380;
+    }
+    server {
+        listen 172.17.41.164:6381;
+        proxy_connect_timeout 1s;
+        proxy_timeout 30s;
+        proxy_pass ray6381;
+    }
+    server {
+        listen 172.17.41.164:12345;
+        proxy_connect_timeout 1s;
+        proxy_timeout 30s;
+        proxy_pass ray12345;
+    }
+    server {
+        listen 172.17.41.164:12346;
+        proxy_connect_timeout 1s;
+        proxy_timeout 30s;
+        proxy_pass ray12346;
+    }
+}
+

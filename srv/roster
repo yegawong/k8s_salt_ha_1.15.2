@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+#******************************************
+# Author:       Jason Zhao
+# Email:        shundong.zhao@linuxhot.com
+# Organization: http://www.devopsedu.com/
+# Description:  Salt SSH Roster
+#******************************************
+
+linux-node1:
+  host: 172.16.0.4
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts: 
+    grains:
+      k8s-role: master
+      etcd-role: node
+      etcd-name: etcd-node1
+
+linux-node2:
+  host: 172.16.0.5
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts:
+    grains:
+      k8s-role: master
+      etcd-role: node
+      etcd-name: etcd-node2
+
+linux-node3:
+  host: 172.16.0.6
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts:
+    grains:
+      k8s-role: master
+      etcd-role: node 
+      etcd-name: etcd-node3
+
+linux-node4:
+  host: 172.16.0.7
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts:
+    grains:
+      k8s-role: node
+
+linux-node5:
+  host: 172.16.0.8
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts:
+    grains:
+      k8s-role: node
+
+linux-node6:
+  host: 172.16.0.9
+  user: root
+  priv: /root/.ssh/id_rsa
+  minion_opts:
+    grains:
+      k8s-role: node

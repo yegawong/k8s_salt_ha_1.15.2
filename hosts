@@ -1,0 +1,19 @@
+127.0.0.1	localhost.localdomain	localhost
+::1		localhost6.localdomain6	localhost6
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+
+
+# hostname loopback address
+172.16.0.4	linux-node1	linux-node1.example.com
+172.16.0.5	linux-node2	linux-node2.example.com
+172.16.0.6	linux-node3	linux-node3.example.com
+172.16.0.7	linux-node4	linux-node4.example.com
+172.16.0.8	linux-node5	linux-node5.example.com
+172.16.0.9	linux-node6	linux-node6.example.com
